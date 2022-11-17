@@ -10,42 +10,51 @@ class CluesContainer extends Component {
             score: 0
         }
         this.handleLogInClick = this.handleLogInClick.bind(this);
+        this.scoreUpdater = this.scoreUpdater.bind(this);
     }
 
-    scoreUpdater(val){
+    async scoreUpdater(val){
+        // const userData = this.getData(this.state.user);
+        const data = {'username': this.state.user, 'value': val}
+        console.log('updater fired', val)
+        const newScore = await this.sendData(data, 'updateScore')
+
+
         const newState = this.state;
-        newState.val += val;
+        newState.score = newScore.score;
         this.setState({newState});
     }
 
     sendData = async (data, endpoint) => {
-        let success = false;
-        await fetch(`/api/${endpoint}`, {
+
+        const res = await fetch(`/api/${endpoint}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data),
         })
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .then(response => {if(response === 'success') success = true})
-        .catch(error => {
-            console.log('error in fetch')
-        });
+        // .then(response => response.json())
+        // .then(response => console.log('fetch response:',response))
+        // .then(response => {return response})
+        // .catch(error => {
+        //     console.log('error in fetch')
+        // });
+        const returnData = await res.json()
 
-        return false;
+        console.log('fetches res', returnData)
+
+        return returnData;
     }
 
     getData = async (user) => {
-        let userScore;
-        await fetch(`/api/${user}`)
-        .then(response => response.json())
-        .then(data => {    
-        userScore = data;
-        console.log('score in fetch', userScore)
-        return userScore;
-        })
+    
+        const res = await fetch(`/api/score/${user}`)
+        const userData = res.json();
+
+        console.log('getData', userData);
+
+        return userData;
 
 
     }
@@ -54,14 +63,14 @@ class CluesContainer extends Component {
         const data = {'username': document.getElementById('username').value};
         console.log('log in click');
 
-        // const status = await this.sendData(data, 'logIn');
+        const returnData = await this.sendData(data, 'logIn');
 
-        console.log('after')
+        console.log('after', returnData)
 
         let newState = this.state;
         this.setState({
             user: data.username,
-            score: newState.score
+            score: returnData.score
         })
     }
 
@@ -70,11 +79,11 @@ class CluesContainer extends Component {
     }
 
     async componentDidUpdate(){
-        const score = await this.getData(this.state.user)
-        console.log('score', score);
+        // const score = await this.getData(this.state.user)
+        // console.log('score', score)
     }
 
-    render() {
+    render(props) {
         return(
             <div>
             <div className='scoreBar'>

@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
     return res.status(200).sendFile(path.join(__dirname, '../index.html'));
 });
 
-app.get('/api/:user', dbController.getUserScore, (req, res) => {
+app.get('/api/score/:user', dbController.getUserScore, (req, res) => {
     return res.status(200)
 });
 
@@ -36,7 +36,11 @@ app.post('/api/signUp', dbController.addUser, (req, res) => {
 });
 
 app.post('/api/logIn', dbController.findUser, (req, res) => {
-    return res.send('success');
+    return res.send(res.locals);
+});
+
+app.post('/api/updateScore', dbController.updateScore, (req,res) => {
+    return res.send(res.locals);
 });
 
 app.use((err, req, res, next) => {

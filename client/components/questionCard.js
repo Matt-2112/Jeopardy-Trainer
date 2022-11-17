@@ -17,7 +17,8 @@ class QuestionCard extends Component {
         this.handleKeyDown = this.handleKeyDown.bind(this);
     }
 
-    handleKeyDown(e){
+
+    async handleKeyDown(e){
 
         const subAnswer = document.getElementById('subAnswer').value;
         console.log(subAnswer);
@@ -29,7 +30,8 @@ class QuestionCard extends Component {
             this.setState({newState});
 
             if(this.state.answer.includes(subAnswer)){
-                // props.updateScore();
+
+                this.props.scoreUpdater(this.state.value);
                 console.log('right !')
             }
         

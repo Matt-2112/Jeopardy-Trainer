@@ -3,9 +3,9 @@ const apiController = {};
 apiController.random = async (req, res, next) => {
 
     try{
-        console.log('hi')
+        // console.log('hi')
         const data = (await fetch('http://jservice.io/api/random'));
-        console.log('mid');
+        // console.log('mid');
         const clue = await data.json();
         console.log(data);
 

@@ -28,9 +28,10 @@ dbController.findUser = (req, res, next) => {
             return next(err);
         } else {
             if(response.rows.length) {
-                console.log('response', response.rows[0]);
+                // console.log('response', response.rows[0]);
                 res.locals = response.rows[0];
-                console.log(res.locals);
+                // console.log(res.locals);
+                return next()
             } else {
                 console.log('response', response)
                 console.log('nothing found')
@@ -55,12 +56,30 @@ dbController.getUserScore = (req, res, next) => {
                 res.locals = response.rows[0];
                 res.send(response.rows[0]);
             }  else {
-                console.log('response', response)
+                console.log('response!!', response)
                 console.log('nothing found')
                 return next();
             }
         }
     });
+}
+
+dbController.updateScore = (req, res, next) => {
+    let query = `UPDATE users SET score = score + ${req.body.value} WHERE username = '${req.body.username}' RETURNING score;`
+    console.log('body val and user', req.body.value, req.body.username);
+    console.log('in score update middleware');
+    db.query(query,(err, response) => {
+        if(err) {
+            err.log = 'Error updating score'
+            err.message = 'Error updating score'
+            return next(err);
+        } else {
+            // console.log('response', response);
+            res.locals = response.rows[0];
+            // console.log('res.locals ',res.locals)
+            return next();
+        }
+    })
 }
 
 module.exports = dbController
