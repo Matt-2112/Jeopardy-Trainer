@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { json, Navigate, useNavigate, } from "react-router-dom";
+import HighScores from "./highScoresList";
 
 class Profile extends Component {
     constructor(props){
@@ -74,6 +75,9 @@ class Profile extends Component {
                         <h2>Sign Up</h2>
                         <input type="text" defaultValue="Username" id="signUp"></input>
                         <button onClick={this.handleSignUpClick}>Log In</button>
+
+                        <h2>High Scores</h2>
+                        <HighScores/>
                 </div>
             )   
         }

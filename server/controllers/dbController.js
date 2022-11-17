@@ -82,4 +82,21 @@ dbController.updateScore = (req, res, next) => {
     })
 }
 
+dbController.getHighScores = (req, res, next) => {
+    const query = 'SELECT username, score FROM users ORDER BY score DESC;'
+
+    db.query(query, (err, response) => {
+        if(err) {
+            err.log = 'Error finding highscores'
+            err.message = 'Error finding highscores'
+            return next(err);
+        } else {
+            console.log('response', response);
+            res.locals = response.rows;
+            // console.log('res.locals ',res.locals)
+            return next();
+        }
+    })
+}
+
 module.exports = dbController

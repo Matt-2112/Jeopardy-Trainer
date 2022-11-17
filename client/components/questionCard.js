@@ -29,6 +29,8 @@ class QuestionCard extends Component {
             console.log(newState);
             this.setState({newState});
 
+            
+
             if(this.state.answer.includes(subAnswer)){
 
                 this.props.scoreUpdater(this.state.value);

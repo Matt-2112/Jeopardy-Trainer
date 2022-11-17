@@ -29,6 +29,10 @@ app.get('/api/score/:user', dbController.getUserScore, (req, res) => {
     return res.status(200)
 });
 
+app.get('/api/highScores', dbController.getHighScores, (req,res) => {
+    res.send(res.locals)
+});
+
 app.post('/api/signUp', dbController.addUser, (req, res) => {
     console.log('posted', req.body) 
     // console.log('res', res)

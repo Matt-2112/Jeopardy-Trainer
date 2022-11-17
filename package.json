@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Matt-2112/Jeopardy-Trainer#readme",
   "dependencies": {
     "concurrently": "^7.5.0",
+    "dotenv": "^16.0.3",
     "es6-promise": "^4.2.8",
     "express": "^4.18.2",
     "isomorphic-fetch": "^3.0.0",
