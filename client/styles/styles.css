@@ -1,0 +1,69 @@
+
+
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: cadetblue;
+    background-color: blue;
+}
+
+.cluesFlex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background-color: rgb(17, 68, 134);
+}
+
+ .cluesContainer{
+
+    /* display: table;
+    table-layout: fixed; */
+    /* width: 100%; */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(17, 68, 134);
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+} 
+
+.category {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#catgories {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.clue{
+    /* display: table-cell; */
+    /* table-layout: fixed; */
+    /* display: flex;
+    flex-direction: column; */
+    background-color: blue;
+    color: antiquewhite;
+    text-align: center;
+    min-width: 15em;
+    min-height: 15em;
+    max-width: 15em;
+    max-height: 15em;
+    /* min-width: 150pt;
+    min-height: 150pt;
+    max-width: 150pt;
+    max-height: 150pt; */
+    border: 4px groove rgb(247, 245, 96);
+    overflow: scroll;
+    font-size: large;
+  
+
+} 
+
+.clue #categoryHeader {
+    margin-top: 0.2em;
+}
+
