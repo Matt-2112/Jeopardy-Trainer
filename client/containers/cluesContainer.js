@@ -89,8 +89,8 @@ class CluesContainer extends Component {
             <div className='scoreBar'>
                     <input type="text" id="username" name="username" placeholder='username'></input>
                     <button onClick={this.handleLogInClick}>Log in</button>
-                    <span>Username: {this.state.user}</span>
-                    <span>Score: {this.state.score}</span>
+                    <span>Username: {this.state.user} </span>
+                    <span>Score: {this.state.score}$</span>
                 </div>
             <div className='cluesFlex'>
             <div className="cluesContainer">

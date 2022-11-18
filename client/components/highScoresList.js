@@ -35,9 +35,9 @@ class HighScores extends Component {
         }
 
         return(
-            <ul className="highScoresList">
+            <ol className="highScoresList">
                 { scores }
-            </ul>
+            </ol>
         )
     }
 }

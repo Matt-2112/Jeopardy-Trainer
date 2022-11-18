@@ -1,11 +1,28 @@
+html{
+    background-color: rgb(24,25,26)
+}
 
+a {
+    color: rgb(228, 230, 235);
+}
 
 .title{
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: cadetblue;
-    background-color: blue;
+    color: rgb(228, 230, 235);
+    background-color: rgb(24,25,26);
+    font-family: 'Ubuntu';
+}
+
+nav{
+    color: rgb(176, 179, 184);
+    background-color: rgb(24,25,26);
+}
+
+.scoreBar{
+    color: rgb(176, 179, 184);
+    background-color: rgb(24,25,26);
 }
 
 .cluesFlex {
@@ -14,7 +31,7 @@
     justify-content: center;
     justify-items: center;
     align-items: center;
-    background-color: rgb(17, 68, 134);
+    background-color: rgb(24,25,26);
 }
 
  .cluesContainer{
@@ -22,9 +39,9 @@
     /* display: table;
     table-layout: fixed; */
     /* width: 100%; */
-    margin-left: auto;
-    margin-right: auto;
-    background-color: rgb(17, 68, 134);
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-color: rgb(24,25,26);
     /* display: flex;
     flex-direction: column;
     justify-content: center; */
@@ -33,6 +50,7 @@
 .category {
     margin-left: auto;
     margin-right: auto;
+    background-color: rgb(24,25,26);;
 }
 
 #catgories {
@@ -45,8 +63,8 @@
     /* table-layout: fixed; */
     /* display: flex;
     flex-direction: column; */
-    background-color: blue;
-    color: antiquewhite;
+    background-color: rgb(36,37,38);
+    color: rgb(228, 230, 235);
     text-align: center;
     min-width: 15em;
     min-height: 15em;
@@ -54,16 +72,38 @@
     max-height: 15em;
     /* min-width: 150pt;
     min-height: 150pt;
+    
     max-width: 150pt;
     max-height: 150pt; */
-    border: 4px groove rgb(247, 245, 96);
+    border: 4px groove rgb(34, 46, 60);
     overflow: scroll;
     font-size: large;
-  
+    font-family: 'Ubuntu';
 
+
+    /* box-sizing: border-box; */
+    float: left;
 } 
 
-.clue #categoryHeader {
-
+.profileHeaders {
+    font-family: 'Ubuntu';
+    color: rgb(176, 179, 184);
 }
 
+#highScoreHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.highScoresList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Ubuntu';
+    color: rgb(176, 179, 184);
+}
+
+.highScoresList li {
+    margin-bottom: 20pt;
+}

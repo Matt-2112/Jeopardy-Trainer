@@ -35,6 +35,9 @@ class QuestionCard extends Component {
 
                 this.props.scoreUpdater(this.state.value);
                 console.log('right !')
+            } else {
+                let value = -this.state.value;
+                this.props.scoreUpdater(value);
             }
         
         }
@@ -80,12 +83,12 @@ class QuestionCard extends Component {
         } 
         else if (this.state.selected && !this.state.reveal) {
             return (
-                <div type="submit" onClick={this.handleClick} className="clue">
+                <button className="clue">
                 <p>{this.state.category}</p>
                 <p>{this.state.value}$</p>
                 <p>{this.state.question}</p>
                 <input id="subAnswer" autoFocus type="text" onKeyDown={this.handleKeyDown}></input>
-            </div>
+            </button>
             )
         }
         else {

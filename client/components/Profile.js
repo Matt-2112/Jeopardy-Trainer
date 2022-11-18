@@ -67,16 +67,16 @@ class Profile extends Component {
         if(!this.state.signedIn){
             return(
                 <div>
-                        <h2>Log In</h2>
+                        <h2 className="profileHeaders">Log In</h2>
                         <input type="text" defaultValue="Username" id="logIn"></input>
                         <button type="submit" onClick={this.handleLogInClick}>Log In</button>
                     
 
-                        <h2>Sign Up</h2>
+                        <h2 className="profileHeaders">Sign Up</h2>
                         <input type="text" defaultValue="Username" id="signUp"></input>
                         <button onClick={this.handleSignUpClick}>Log In</button>
 
-                        <h2>High Scores</h2>
+                        <h2 className="profileHeaders" id="highScoreHeader">High Scores</h2>
                         <HighScores/>
                 </div>
             )   
